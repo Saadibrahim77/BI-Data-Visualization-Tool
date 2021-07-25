@@ -19,6 +19,7 @@
     <InterpreterId>
     </InterpreterId>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+    <WebBrowserPort>5432</WebBrowserPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +32,24 @@
   <ItemGroup>
     <Compile Include="app.py" />
     <Compile Include="Config.py" />
-    <Compile Include="Data\InstagramClass.py">
+    <Compile Include="Data\CustomerSegmentation.py" />
+    <Compile Include="Data\InstagramWR.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\LinkedIn.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\ProductAffinity.py" />
+    <Compile Include="Model\Organization.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\RetrivedMongoList.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Unit.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\ValueOfFile.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="RepositoryFile\MongoDB.py">
@@ -39,7 +57,6 @@
     </Compile>
     <Compile Include="Model\Company.py" />
     <Compile Include="Model\DataFile.py" />
-    <Compile Include="Model\module1.py" />
     <Compile Include="Model\Report.py" />
     <Compile Include="Model\User.py" />
     <Compile Include="Model\UserToken.py" />
@@ -49,6 +66,9 @@
     <Compile Include="Views\home_register.py" />
     <Compile Include="Views\login.py" />
     <Compile Include="Views\register.py" />
+    <Compile Include="Views\Report.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\ViewGraphs.py">
       <SubType>Code</SubType>
     </Compile>
@@ -67,12 +87,17 @@
     <Content Include="static\css1\all.min.css" />
     <Content Include="static\css1\bootstrap.css" />
     <Content Include="static\css1\bootstrap.min.css" />
+    <Content Include="static\css1\style.css" />
     <Content Include="static\css1\style7.css" />
+    <Content Include="static\css1\style8.css" />
     <Content Include="static\css\all.min.css" />
     <Content Include="static\css\bootstrap.css" />
     <Content Include="static\css\mycss.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="static\css\mystyle.css" />
+    <Content Include="static\css\ngrb.css" />
+    <Content Include="static\css\popupstyle.css" />
     <Content Include="static\css\style.css" />
     <Content Include="static\css\style1.css" />
     <Content Include="static\css\style2.css" />
@@ -82,6 +107,8 @@
     <Content Include="static\css\style6.css" />
     <Content Include="static\face1.png" />
     <Content Include="static\face2.png" />
+    <Content Include="static\files\Orders.csv" />
+    <Content Include="static\files\Orders_Products.csv" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
@@ -106,6 +133,7 @@
     <Content Include="static\images\logo.jpeg" />
     <Content Include="static\images\par-chart.png" />
     <Content Include="static\images\pie-chart.png" />
+    <Content Include="static\images\repo.jpeg" />
     <Content Include="static\images\slider1.jpg" />
     <Content Include="static\images\slider2.jpg" />
     <Content Include="static\images\slider3.jpg" />
@@ -119,6 +147,7 @@
     <Content Include="static\js\bootstrap.min.js" />
     <Content Include="static\js\jquery-1.11.1.min.js" />
     <Content Include="static\js\main.js" />
+    <Content Include="static\js\myscript.js" />
     <Content Include="static\webfonts\fa-brands-400.eot" />
     <Content Include="static\webfonts\fa-brands-400.svg" />
     <Content Include="static\webfonts\fa-brands-400.ttf" />
@@ -135,14 +164,22 @@
     <Content Include="static\webfonts\fa-solid-900.woff" />
     <Content Include="static\webfonts\fa-solid-900.woff2" />
     <Content Include="SureAnalytics.db" />
+    <Content Include="templates\customerseg.html" />
+    <Content Include="templates\customerseggraph.html" />
     <Content Include="templates\data.html" />
-    <Content Include="templates\graph chart.html" />
-    <Content Include="templates\graph chart1.html" />
     <Content Include="templates\home.html" />
-    <Content Include="templates\instgram page.html" />
+    <Content Include="templates\Instagram_Graphs.html" />
+    <Content Include="templates\InstaPageView.html" />
+    <Content Include="templates\LinkedInPageView.html" />
+    <Content Include="templates\Linkedin_Graphs.html" />
     <Content Include="templates\login.html" />
     <Content Include="templates\personal.html" />
+    <Content Include="templates\product.html" />
+    <Content Include="templates\productgraph.html" />
     <Content Include="templates\register.html" />
+    <Content Include="templates\reportinfo.html" />
+    <Content Include="templates\ShowReportInstagram.html" />
+    <Content Include="templates\ShowReportLinkedIn.html" />
     <Content Include="templates\view_personal.html" />
     <Content Include="Views\__pycache__\Home.cpython-37.pyc" />
     <Content Include="Views\__pycache__\homepage.cpython-37.pyc" />
@@ -164,6 +201,7 @@
     <Folder Include="static\images\" />
     <Folder Include="static\js1\" />
     <Folder Include="static\js\" />
+    <Folder Include="static\files\" />
     <Folder Include="static\webfonts\" />
     <Folder Include="templates\" />
     <Folder Include="Views\" />

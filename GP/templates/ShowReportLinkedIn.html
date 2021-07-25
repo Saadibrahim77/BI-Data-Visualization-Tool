@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/ngrb.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/mystyle.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style2.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css1/style7.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .w3-btn {
+            width: 300;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #003552;
+        }
+
+            .topnav a {
+                float: right;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #04AA6D;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #fe3412;
+                    color: white;
+                }
+    </style>
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+
+        var entries = {{ jsonlist| tojson}}
+
+        var data = JSON.parse(entries)
+
+
+
+
+        function pie(data_pie) {
+            var options = {
+
+                width: 700,
+                height: 300
+            };
+
+            // Instantiate and draw the chart for Sarah's pizza.
+            var chart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
+            chart.draw(data_pie, options);
+        }
+
+          function bar(data_bar) {
+            var options = {
+
+                width: 700,
+                height: 300,
+
+
+            };
+
+
+            var chart = new google.visualization.BarChart(document.getElementById('bar_chart_div'));
+            chart.draw(data_bar, options);
+        }
+
+        function line(data_line) {
+
+
+
+            var options = {
+
+                width: 700,
+                height: 300
+            };
+
+
+            var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));
+            chart.draw(data_line, options);
+        }
+
+        function scatter(scatter_plot,h,v) {
+
+
+
+            var options = {
+
+                width: 700,
+                height: 300,
+                hAxis: { minValue: 0, maxValue: h },
+                vAxis: {  minValue: 0, maxValue: v },
+
+            };
+
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('scatter_chart_div'));
+            chart.draw(scatter_plot, options);
+        }
+
+
+
+        function piechart_report(index) {
+
+            var firstArray =data[index].listvalues[0]
+            var secondArray =data[index].listvalues[1]
+
+
+    var data_pie = new google.visualization.DataTable();
+        data_pie.addColumn('string', 'x');
+        data_pie.addColumn('number', 'y');
+
+    var myListofArrays = [];
+
+for(var i=0;i<firstArray.length;i++){
+var list=[];
+list.push(firstArray[i]);
+list.push(secondArray[i]);
+myListofArrays.push(list);
+}
+
+
+
+
+        data_pie.addRows(myListofArrays)
+
+
+
+
+        var pies = document.getElementById('pie');
+
+
+
+
+        let test = ' <div id="pie_chart_div" style="border: 1px solid #ccc"></div>';
+        pies.innerHTML = test;
+        google.charts.setOnLoadCallback(pie(data_pie));
+
+
+
+
+
+
+            }
+    function barchart_report(index) {
+
+
+
+        var data_bar = new google.visualization.DataTable();
+
+        data_bar.addColumn('string', 'x');
+        data_bar.addColumn('number', 'y');
+        var firstArray = data[index].listvalues[0]
+        var secondArray = data[index].listvalues[1]
+
+        //var firstArray = (data[index].listvalues[0])
+            //Object.keys(obj).map(key => obj[key])
+ //       document.write(firstArray)
+        //document.write("!______________________")
+ //       document.write(Json.parse(data[index].listvalues[0]))
+            //document.write("!______________________")
+            //document.write(firstArray[0])
+
+        //var secondArray = data[index].listvalues[1].tojson
+
+    var myListofArrays = [];
+
+
+
+    for(var i=0;i<firstArray.length;i++){
+    var list=[];
+    list.push(firstArray[i]);
+    list.push(secondArray[i]);
+    myListofArrays.push(list);
+            }
+    data_bar.addRows(myListofArrays)
+
+
+            //document.write(data_bar)
+
+    var bars = document.getElementById('bar');
+
+    let test = ' <div id="bar_chart_div" style="border: 1px solid #ccc"></div>';
+
+
+
+     bars.innerHTML = test;
+     google.charts.setOnLoadCallback(bar(data_bar));
+
+
+        }
+
+
+
+        function linechart_report(index) {
+
+
+            var firstArray = data[index].listvalues[0]
+            var secondArray = data[index].listvalues[1]
+
+
+            var data_line = new google.visualization.DataTable();
+            //document.write(firstArray)
+    data_line.addColumn('number', 'x');
+        data_line.addColumn('number', 'y');
+    var myListofArrays = [];
+
+
+
+    for(var i=0;i<firstArray.length;i++){
+    var list=[];
+    list.push(firstArray[i]);
+    list.push(secondArray[i]);
+    myListofArrays.push(list);
+    }
+    data_line.addRows(myListofArrays)
+        var lines = document.getElementById('line');
+        let test = ' <div id="line_chart_div" style="border: 1px solid #ccc"></div>';
+        lines.innerHTML = test;
+               google.charts.setOnLoadCallback(line(data_line));
+
+
+            }
+
+
+
+
+        function scatterchart_report(index) {
+
+            var firstArray = data[index].listvalues[0]
+            var secondArray = data[index].listvalues[1]
+
+            var h = Math.max(...firstArray)
+            var v = Math.max(...secondArray)
+
+        var scatter_plot = new google.visualization.DataTable();
+            scatter_plot.addColumn('number', 'x');
+            scatter_plot.addColumn('number', 'y');
+
+
+
+            myListofArrays=[]
+
+
+        for (var i = 0; i < firstArray.length; i++) {
+            var list = [];
+            list.push(firstArray[i]);
+            list.push(secondArray[i]);
+            myListofArrays.push(list);
+        }
+        scatter_plot.addRows(myListofArrays)
+        var scatters = document.getElementById('scatter');
+        let test = ' <div id="scatter_chart_div" style="border: 1px solid #ccc"></div>';
+        scatters.innerHTML = test;
+        google.charts.setOnLoadCallback(scatter(scatter_plot,h,v));
+
+
+        }
+
+
+        function DoReport() {
+
+            for (var i = 0; i < data.length; i++) {
+               // document.write(data[i].visual_id)
+                //document.write(data[i].listvalues[0][1])
+                console.log("Hereeee")
+                if (data[i].visual_id == 1) { barchart_report(i) }
+                if (data[i].visual_id == 2) { linechart_report(i) }
+                if (data[i].visual_id == 3) { piechart_report(i) }
+                if (data[i].visual_id == 4) { scatterchart_report(i) }
+
+
+            }
+
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+
+    <svg style="display:none;">
+
+
+
+
+        <symbol id="down" viewBox="0 0 16 16">
+            <polygon points="3.81 4.38 8 8.57 12.19 4.38 13.71 5.91 8 11.62 2.29 5.91 3.81 4.38" />
+        </symbol>
+        <symbol id="users" viewBox="0 0 16 16">
+            <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,15a7,7,0,0,1-5.19-2.32,2.71,2.71,0,0,1,1.7-1,13.11,13.11,0,0,0,1.29-.28,2.32,2.32,0,0,0,.94-.34,1.17,1.17,0,0,0-.27-.7h0A3.61,3.61,0,0,1,5.15,7.49,3.18,3.18,0,0,1,8,4.07a3.18,3.18,0,0,1,2.86,3.42,3.6,3.6,0,0,1-1.32,2.88h0a1.13,1.13,0,0,0-.27.69,2.68,2.68,0,0,0,.93.31,10.81,10.81,0,0,0,1.28.23,2.63,2.63,0,0,1,1.78,1A7,7,0,0,1,8,15Z" />
+        </symbol>
+        <symbol id="collection" viewBox="0 0 16 16">
+            <rect width="7" height="7" />
+            <rect y="9" width="7" height="7" />
+            <rect x="9" width="7" height="7" />
+            <rect x="9" y="9" width="7" height="7" />
+        </symbol>
+        <symbol id="charts" viewBox="0 0 16 16">
+            <polygon points="0.64 7.38 -0.02 6.63 2.55 4.38 4.57 5.93 9.25 0.78 12.97 4.37 15.37 2.31 16.02 3.07 12.94 5.72 9.29 2.21 4.69 7.29 2.59 5.67 0.64 7.38" />
+            <rect y="9" width="2" height="7" />
+            <rect x="12" y="8" width="2" height="8" />
+            <rect x="8" y="6" width="2" height="10" />
+            <rect x="4" y="11" width="2" height="5" />
+        </symbol>
+        <symbol id="comments" viewBox="0 0 16 16">
+            <path d="M0,16.13V2H15V13H5.24ZM1,3V14.37L5,12h9V3Z" />
+            <rect x="3" y="5" width="9" height="1" />
+            <rect x="3" y="7" width="7" height="1" />
+            <rect x="3" y="9" width="5" height="1" />
+        </symbol>
+        <symbol id="pages" viewBox="0 0 16 16">
+            <rect x="4" width="12" height="12" transform="translate(20 12) rotate(-180)" />
+            <polygon points="2 14 2 2 0 2 0 14 0 16 2 16 14 16 14 14 2 14" />
+        </symbol>
+        <symbol id="appearance" viewBox="0 0 16 16">
+            <path d="M3,0V7A2,2,0,0,0,5,9H6v5a2,2,0,0,0,4,0V9h1a2,2,0,0,0,2-2V0Zm9,7a1,1,0,0,1-1,1H9v6a1,1,0,0,1-2,0V8H5A1,1,0,0,1,4,7V6h8ZM4,5V1H6V4H7V1H9V4h1V1h2V5Z" />
+        </symbol>
+        <symbol id="trends" viewBox="0 0 16 16">
+            <polygon points="0.64 11.85 -0.02 11.1 2.55 8.85 4.57 10.4 9.25 5.25 12.97 8.84 15.37 6.79 16.02 7.54 12.94 10.2 9.29 6.68 4.69 11.76 2.59 10.14 0.64 11.85" />
+        </symbol>
+        <symbol id="settings" viewBox="0 0 16 16">
+            <rect x="9.78" y="5.34" width="1" height="7.97" />
+            <polygon points="7.79 6.07 10.28 1.75 12.77 6.07 7.79 6.07" />
+            <rect x="4.16" y="1.75" width="1" height="7.97" />
+            <polygon points="7.15 8.99 4.66 13.31 2.16 8.99 7.15 8.99" />
+            <rect x="1.28" width="1" height="4.97" />
+            <polygon points="3.28 4.53 1.78 7.13 0.28 4.53 3.28 4.53" />
+            <rect x="12.84" y="11.03" width="1" height="4.97" />
+            <polygon points="11.85 11.47 13.34 8.88 14.84 11.47 11.85 11.47" />
+        </symbol>
+        <symbol id="options" viewBox="0 0 16 16">
+            <path d="M8,11a3,3,0,1,1,3-3A3,3,0,0,1,8,11ZM8,6a2,2,0,1,0,2,2A2,2,0,0,0,8,6Z" />
+            <path d="M8.5,16h-1A1.5,1.5,0,0,1,6,14.5v-.85a5.91,5.91,0,0,1-.58-.24l-.6.6A1.54,1.54,0,0,1,2.7,14L2,13.3a1.5,1.5,0,0,1,0-2.12l.6-.6A5.91,5.91,0,0,1,2.35,10H1.5A1.5,1.5,0,0,1,0,8.5v-1A1.5,1.5,0,0,1,1.5,6h.85a5.91,5.91,0,0,1,.24-.58L2,4.82A1.5,1.5,0,0,1,2,2.7L2.7,2A1.54,1.54,0,0,1,4.82,2l.6.6A5.91,5.91,0,0,1,6,2.35V1.5A1.5,1.5,0,0,1,7.5,0h1A1.5,1.5,0,0,1,10,1.5v.85a5.91,5.91,0,0,1,.58.24l.6-.6A1.54,1.54,0,0,1,13.3,2L14,2.7a1.5,1.5,0,0,1,0,2.12l-.6.6a5.91,5.91,0,0,1,.24.58h.85A1.5,1.5,0,0,1,16,7.5v1A1.5,1.5,0,0,1,14.5,10h-.85a5.91,5.91,0,0,1-.24.58l.6.6a1.5,1.5,0,0,1,0,2.12L13.3,14a1.54,1.54,0,0,1-2.12,0l-.6-.6a5.91,5.91,0,0,1-.58.24v.85A1.5,1.5,0,0,1,8.5,16ZM5.23,12.18l.33.18a4.94,4.94,0,0,0,1.07.44l.36.1V14.5a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5V12.91l.36-.1a4.94,4.94,0,0,0,1.07-.44l.33-.18,1.12,1.12a.51.51,0,0,0,.71,0l.71-.71a.5.5,0,0,0,0-.71l-1.12-1.12.18-.33a4.94,4.94,0,0,0,.44-1.07l.1-.36H14.5a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5H12.91l-.1-.36a4.94,4.94,0,0,0-.44-1.07l-.18-.33L13.3,4.11a.5.5,0,0,0,0-.71L12.6,2.7a.51.51,0,0,0-.71,0L10.77,3.82l-.33-.18a4.94,4.94,0,0,0-1.07-.44L9,3.09V1.5A.5.5,0,0,0,8.5,1h-1a.5.5,0,0,0-.5.5V3.09l-.36.1a4.94,4.94,0,0,0-1.07.44l-.33.18L4.11,2.7a.51.51,0,0,0-.71,0L2.7,3.4a.5.5,0,0,0,0,.71L3.82,5.23l-.18.33a4.94,4.94,0,0,0-.44,1.07L3.09,7H1.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H3.09l.1.36a4.94,4.94,0,0,0,.44,1.07l.18.33L2.7,11.89a.5.5,0,0,0,0,.71l.71.71a.51.51,0,0,0,.71,0Z" />
+        </symbol>
+        <symbol id="collapse" viewBox="0 0 16 16">
+            <polygon points="11.62 3.81 7.43 8 11.62 12.19 10.09 13.71 4.38 8 10.09 2.29 11.62 3.81" />
+        </symbol>
+        <symbol id="search" viewBox="0 0 16 16">
+            <path d="M6.57,1A5.57,5.57,0,1,1,1,6.57,5.57,5.57,0,0,1,6.57,1m0-1a6.57,6.57,0,1,0,6.57,6.57A6.57,6.57,0,0,0,6.57,0Z" />
+            <rect x="11.84" y="9.87" width="2" height="5.93" transform="translate(-5.32 12.84) rotate(-45)" />
+        </symbol>
+    </svg>
+    <header class="page-header">
+        <nav>
+
+
+
+
+
+
+
+
+
+
+            <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
+                <svg width="20" height="20" aria-hidden="true">
+                    <use xlink:href="#down"></use>
+                </svg>
+            </button>
+
+            <a class="navbar-brand" href="/homepage"><span>    Sure</span><span> Analytics</span></a>
+            <ul class="admin-menu">
+                <li class="menu-heading">
+                    <h3>Charts</h3>
+                </li>
+
+
+
+
+                <li id="Bar_menu" style="display:none">
+                    <button onclick="openpopbar()">
+                        <svg>
+                            <use xlink:href="#pages"></use>
+                        </svg>
+                        <span>Bar Chart</span>
+                    </button>
+
+                    <div class="popup-bar">
+                        <div class="popup-content">
+
+
+                            <span class="span1">label</span>
+                            <select id="myoptionx_bar" required style="width: 100px; ">
+                                <option>Day Of Week</option>
+
+                            </select>
+                            <span class="span2">value</span>
+                            <select required style="width: 100px;" id="myoptiony_bar">
+                                <option>Profile Views</option>
+                                <option>impressions</option>
+                                <option>reach</option>
+                            </select>
+                            <br>
+                            <br>
+                            <br />
+
+                            <button class="done" id="done" onclick="barchart()">Done</button>
+                            <button class="close" id="close" onclick="closesbar()">Close</button>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+                <li id="Pie_menu" style="display:none">
+                    <button onclick="openpoppie()">
+                        <svg>
+                            <use xlink:href="#users"></use>
+                        </svg>
+                        <span>Pie Chart</span>
+                    </button>
+                    <div class="popup-pie">
+                        <div class="popup-content">
+
+
+                            <span class="span1">label</span>
+                            <select id="myoptionx_pie" required style="width: 100px; ">
+                                <option>Languages</option>
+                                <option>cities</option>
+                                <option>countries</option>
+                            </select>
+
+                            <br>
+                            <br>
+                            <br />
+
+                            <button class="done" id="done" onclick="piechart()">Done</button>
+                            <button class="close" id="close" onclick="closespie()">Close</button>
+                        </div>
+
+                    </div>
+                </li>
+
+
+                <li id="Line_menu" style="display:none">
+                    <button onclick="openpopline()">
+                        <svg>
+                            <use xlink:href="#trends"></use>
+                        </svg>
+                        <span>Line Chart</span>
+                    </button>
+                    <div class="popup-line">
+                        <div class="popup-content">
+
+
+                            <span class="span1">label</span>
+                            <select id="myoptionx_line" required style="width: 100px; ">
+                                <option>Day Of Week</option>
+                            </select>
+                            <span class="span2">value</span>
+                            <select required style="width: 100px;" id="myoptiony_line">
+                                <option>Profile Views</option>
+                                <option>impressions</option>
+                                <option>reach</option>
+                            </select>
+                            <br>
+                            <br>
+                            <br />
+
+                            <button class="done" id="done" onclick="linechart()">Done</button>
+                            <button class="close" id="close" onclick="closesline()">Close</button>
+                        </div>
+
+                    </div>
+                </li>
+                <li id="Scatter_menu" style="display:none">
+                    <button onclick="openpopcard()">
+                        <svg>
+                            <use xlink:href="#collection"></use>
+                        </svg>
+                        <span>Scatter plot</span>
+                    </button>
+                    <div class="popup-card">
+                        <div class="popup-content">
+
+
+                            <span class="span1">label</span>
+                            <select id="myoptionx_card" required style="width: 100px; ">
+
+                                <option>impression</option>
+                                <option>profile views</option>
+                            </select>
+                            <span class="span2">value</span>
+                            <select required style="width: 100px;" id="myoptiony_card">
+                                <option>Reach</option>
+                            </select>
+                            <br>
+                            <br>
+                            <br />
+
+                            <button class="done" id="done" onclick="scatterchart()">Done</button>
+                            <button class="close" id="close" onclick="closescard()">Close</button>
+                        </div>
+
+                    </div>
+                </li>
+
+
+                <li>
+                    <div class="w3-container">
+
+
+                        <button i class="w3-button w3-block w3-yellow w3-round-xlarge w3-center-align " onclick="DoReport()">Show Report     </button>
+
+                    </div>
+
+                </li>
+
+
+
+                <li>
+                    <div class="switch">
+                        <input type="checkbox" id="mode" checked>
+                        <label for="mode">
+                            <span></span>
+                            <span>Dark</span>
+                        </label>
+                    </div>
+                    <button class="collapse-btn" aria-expanded="true" aria-label="collapse menu">
+                        <svg aria-hidden="true">
+                            <use xlink:href="#collapse"></use>
+                        </svg>
+                        <span>Collapse</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="topnav">
+        <a class="active" href="/DataSource">Data Sources</a>
+        <a href="/Report">My Reports</a>
+
+    </div>
+    <section class="page-content">
+
+        <div id="myDIV2" style="display:block; overflow-x:auto">
+
+
+            <section class="grid">
+
+                <article class="pie" id="pie"></article>
+                <article class="bar" id="bar"></article>
+                <article class="line" id="line"></article>
+                <article class="scatter" id="scatter"></article>
+
+            </section>
+        </div>
+        <footer class="page-footer">
+        </footer>
+    </section>
+    <script src="{{url_for('static',filename='js/myscript.js')}}"></script>
+
+</body>
+</html>

@@ -1,9 +1,10 @@
 import requests
 import json
-from flask_pymongo import PyMongo
 import pandas as pd
 from pymongo import MongoClient
-class MongoDB(object):
+from bson.objectid import ObjectId
+
+class MongoDB:
     
     client = None
     
@@ -24,10 +25,22 @@ class MongoDB(object):
         database = self.client.get_database(platform)
         collection = database[user_id]
         file = collection.find_one({"_id": ObjectId(datafile_id)})
-        ret_file = pd.json_normalize(file)
+        ret_file = pd.DataFrame.from_dict(file)
         ret_file = ret_file.drop(columns={'_id'})
-        ret_file = ret_file.transpose()
         return ret_file
- 
+    
 
+    
+    
 
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    

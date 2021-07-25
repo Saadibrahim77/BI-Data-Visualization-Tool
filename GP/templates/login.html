@@ -1,126 +1,128 @@
 ﻿<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
-        <title>Login</title>
-        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
-        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> <!--to update bootstrap -->
-    </head>
-    <body>
-        <!--start navbar-->
-        <nav class="navbar navbar-inverse ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
+    <title>Login</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/popupstyle.css')}}"><!--to update bootstrap -->
+</head>
+<body>
+    <!--start navbar-->
+    <nav class="navbar navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><span>Sure</span>Analytics</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="li"><a href="/register">Sign up for free</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--end navbar-->
+    <!--start section login-->
+
+
+    <section class="login">
+        <div class="fields">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><span>Sure</span>Analytics</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-                        <li class="li"><a href="/register">Sign up for free</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-        <!--end navbar-->
-        <!--start section login-->
-        <form action="/login/login_action" method="post">
-            <section class="login">
-                <div class="fields">
-                    <div class="container">
-                        <div class="row">
-                            <form role="form">
-                                <div class="col-md-6 data">
-                                    <img src="{{url_for('static',filename='images/1.png')}}" class="center-block">
-                                    <h2 class="text-center">Welcome back</h2>
-                                    <div class="form-box">
-                                        <div class="input-box">
-                                            <i class="far fa-envelope"></i>
-                                            <input type="email" placeholder="Email" required name="email">
-                                        </div>
-                                        <div class="input-box">
-                                            <i class="fas fa-key"></i>
-                                            <input type="password" placeholder="password" id="pass" name="password">
-                                            <span class="eye" onclick="myFunction()">
-                                                <i id="hide1" class="far fa-eye"></i>
-                                                <i id="hide2" class="far fa-eye-slash"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="checkbox"><label>Remember me</label>
-                                        <button class="login-btn btn-danger">Login</button>
-                                    </div>
-                                    <a href="#"><p style="text-align: center;">Forgotten password?</p></a>
-                                    <p class="text-center p1">Don't have an account? <a href="/register">sign up for free</a></p>
+                <div class="row">
+                    <form action="/login/login_action" method="post">
+                        <div class="col-md-6 data">
+                            <img src="{{url_for('static',filename='images/1.png')}}" class="center-block">
+                            <h2 class="text-center">Welcome back</h2>
+                            <div class="form-box">
+                                <div class="input-box">
+                                    <i class="far fa-envelope"></i>
+                                    <input type="email" placeholder="Email" required name="email">
                                 </div>
-                            </form>
-                            <!--end login form-->
+                                <div class="input-box">
+                                    <i class="fas fa-key"></i>
+                                    <input type="password" placeholder="password" id="pass" name="password">
+                                    <span class="eye" onclick="myFunction()">
+                                        <i id="hide1" class="far fa-eye"></i>
+                                        <i id="hide2" class="far fa-eye-slash"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox"><label>Remember me</label>
+                                <button class="login-btn btn-danger">Login</button>
+                            </div>
+                            <a href="#" id="ForgetPassword" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"><p style="text-align: center;">Forgotten password?</p></a>
+                            <p class="text-center p1">Don't have an account? <a href="/register">sign up for free</a></p>
                         </div>
-                    </div>
+                    </form>
+                    <!--end login form-->
                 </div>
-            </section>
-            <!--end section login-->
-            <!--start ultimate footer section-->
+            </div>
+        </div>
+    </section>
+    <!--end section login-->
+    <!--start ultimate footer section-->
+    <!--pop Forgotten password-->
 
-            <section class="footer text-center">
-                <div class="container-fluid">
-                    <div class="row">
-                        <ul>
-                            <li><img src="{{url_for('static',filename='images/88.svg')}}"></li>
-                            <li><img src="{{url_for('static',filename='images/1111.svg')}}"></li>
-                            <li><img src="{{url_for('static',filename='images/1212.svg')}}"></li>
-                        </ul>
-                        <div class="col-md-3">
-                            <a href="#"><p>Privacy and Policy</p></a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="#"><p>Terms and conditions</p></a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="#"><p>contact us</p></a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="#"><p>Ask for help</p></a>
-                        </div>
-                        <p><span class="pp">We accept :</span>  <img src="{{url_for('static',filename='images/2.png')}}"> <img src="{{url_for('static',filename='images/3.png')}}" /></p>
-                        <div class="copyright text-center">
-                            Copyright &copy; 2021 all rights reversed | <span class="pp2">SureAnalystics</span>
-                        </div>
-                    </div>
 
-                </div>
+    
+    <!--start ultimate footer section-->
+    <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("pass"),
+                y = document.getElementById("hide1"),
+                z = document.getElementById("hide2");
+            if (x.type === 'password') {
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none";
+            }
+            else {
+                x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block";
+            }
+        }
+    </script>
 
-            </section>
 
-            <!--start ultimate footer section-->
-            <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
-            <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
-            <script>
-                function myFunction() {
-                    var x = document.getElementById("pass"),
-                        y = document.getElementById("hide1"),
-                        z = document.getElementById("hide2");
-                    if (x.type === 'password') {
-                        x.type = "text";
-                        y.style.display = "block";
-                        z.style.display = "none";
-                    }
-                    else {
-                        x.type = "password";
-                        y.style.display = "none";
-                        z.style.display = "block";
-                    }
-                }
-            </script>
-            
-        </form>
-       
-    </body>
+    <div class="popup">
+
+        <div class="plogin">
+            <form action="/login/UpdatePassowrd" method="post">
+                <img src="closeicon.jpg" alt="Close" class="pclose" />
+                <input type="text" name="Email" placeholder="Enter Email " />
+                <input type="password" name="Password" placeholder="Enter new Password" />
+                <input type="password" name="Confirm" placeholder="Confirm Password" />
+                <button class="pbutton">OK</button>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+
+        document.getElementById("ForgetPassword").addEventListener("click", function () {
+            document.querySelector(".popup").style.display = "flex";
+        })
+
+
+        document.querySelector(".pclose").addEventListener("click", function () {
+            document.querySelector(".popup").style.display = "none";
+        })
+    </script>
+
+
+</body>
 </html>

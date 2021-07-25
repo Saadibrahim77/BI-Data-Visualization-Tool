@@ -1,5 +1,7 @@
 ﻿<html>
 <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
     <title>Data Sources</title>
@@ -23,15 +25,15 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Report <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="/Report">Report <span class="sr-only">(current)</span></a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{url_for('static',filename='face1.png')}}" width="45px" height="45px"> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{url_for('static',filename='face1.png')}}" width="45" height="45"> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="personal.html"><i class="fas fa-home"></i>Home</a></li>
                             <li><a href="/login"><i class="fas fa-sign-out-alt"></i> SignOut</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -45,82 +47,72 @@
                 <div class="online-icon">
                     <h3><i class="fas fa-users"></i>  Social Media Platforms </h3>
 
-                    <div class="button">
-                        <a onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'facebook');">
-                            <div class="icon"><i class="fab fa-facebook"></i></div>
-                        </a>
-                        
-                        <a onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'facebook');">
-                           <span>Facebook</span>
-                        </a>
-                    </div>
 
                     <div class="button">
                         <a onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'insta');">
                             <div class="icon"><i class="fab fa-instagram"></i></div>
                         </a>
-                        
-                        <a  onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'insta');">
+
+                        <a onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'insta');">
                             <span>Instagram</span>
                         </a>
                     </div>
+
                     <div class="button">
-                        <a href="http://www.twitter.com">
-                            <div class="icon"><i class="fab fa-twitter"></i></div>
-                        </a>
-                        <a href="http://www.twitter.com">
-                            <span>Twitter</span>
-                        </a>
-                    </div>
-                    <div class="button">
-                        <a href="http://www.linkedin.com">
+                        <a href="platform/Linkedin/Auth">
                             <div class="icon"><i class="fab fa-linkedin-in"></i></div>
                         </a>
-                        <a href="http://www.linkedin.com">
+                        <a href="platform/Linkedin/Auth">
                             <span>LinkedIn</span>
                         </a>
                     </div>
                 </div>
+
+
+
+
             </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="online-icon">
+                    <h3><i class="fas fa-users"></i> Advanced Analytic Source (CSV)  </h3>
+
+
+                    <div class="button">
+                        <i class='fas fa-file-csv' style='font-size:45px'></i>
+                        <a href="/platform/customerview">
+                            <span>Customer</span>
+                        </a>
+                    </div>
+
+                    <div class="button">
+                        <i class='fas fa-file-csv' style='font-size:45px'></i>
+                        <a href="/platform/productview">
+                            <span>Products Affiliation</span>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
         </div>
     </div>
     <!--end data-->
-    <!--start ultimate footer section-->
-    <section class="footer text-center">
-        <div class="container-fluid">
-            <div class="row">
-                <ul>
-                    <li><img src="{{url_for('static',filename='images/88.svg')}}"></li>
-                    <li><img src="{{url_for('static',filename='images/1111.svg')}}"></li>
-                    <li><img src="{{url_for('static',filename='images/1212.svg')}}"></li>
-                </ul>
-                <div class="col-md-3">
-                    <a href="#"><p>Privacy and Policy</p></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><p>Terms and conditions</p></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><p>contact us</p></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><p>Ask for help</p></a>
-                </div>
-                <p><span class="pp">We accept :</span>  <img src="{{url_for('static',filename='images/2.png')}}"> <img src="{{url_for('static',filename='images/3.png')}}" /></p>
-                <div class="copyright text-center">
-                    Copyright &copy; 2021 all rights reversed | <span class="pp2">SureAnalystics</span>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
+    
     <!--start ultimate footer section-->
     <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
     <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
 
     <div id="fb-root"></div>
-    
+
 
 
     <script>
@@ -156,10 +148,10 @@
         function FacebookLoggedIn(response, from) {
             var route;
             if (from == 'facebook') {
-                route = "/Facebook/AccessToken";
+                route = "platform/Facebook/AccessToken";
             }
             if (from == 'insta') {
-                route = "/Instagram/AccessToken";
+                route = "platform/Instagram/AccessToken";
             }
 
             console.log(route);

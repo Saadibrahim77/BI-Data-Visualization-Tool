@@ -1,0 +1,97 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
+    <title>LinkedIn Page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style6.css')}}"> <!--to update bootstrap -->
+</head>
+<body>
+    <!--start navbar-->
+    <nav class="navbar navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/homepage"><span>Sure</span>Analytics</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!--  <li><a href="/Report">Report</a></li> -->
+                    <li class="li"><a href="/DataSource">Data sources</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="drown" ropdole="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <img src="{{url_for('static',filename='face1.png')}}"
+                                 width="45" height="45"> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/profile"><i class="fas fa-user"></i>View profile</a></li>
+                            <li><a href="/login"><i class="fas fa-sign-out-alt"></i> SignOut</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--end navbar-->
+    <!--start instgram page-->
+    <section class="instgram-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="lead text-left">Select Your LinkedIn Page</p>
+                </div>
+            </div>
+           
+
+            {% for page in Pages %}
+
+            <div class="row row1 text-left">
+                <div class="col-md-12">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img class="media-object" src="{{page.GetOrganizationImageUrl()}}">
+                        </div>
+                        <div class="media-body">
+                            <p>Page name: <span>{{page.GetOrganizationName()}}</span></p>
+
+                            <a href="/page/{{page.GetOrganizationTarget()}}/{{page.GetOrganizationName()}}">
+                                <button type="button" name="GetReport">Visualize</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                {% endfor%}
+            
+        </div>
+
+</section>
+
+
+    <!--end instgram page-->
+    <!--start ultimate footer section-->
+    <section class="footer text-center">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="copyright text-center">
+                    Copyright &copy; 2021 all rights reversed | <span class="pp2">SureAnalystics</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!--start ultimate footer section-->
+    <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+
+</body>
+</html>

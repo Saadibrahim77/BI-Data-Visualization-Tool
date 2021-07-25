@@ -1,0 +1,92 @@
+﻿
+<!doctype html>
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
+    <title>personal page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style5.css')}}"> <!--to update bootstrap -->
+</head>
+<body>
+    <!--start navbar-->
+    <nav class="navbar navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/homepage"><span>Sure</span>Analytics</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/Report">Report</a></li>
+                    <li class="li"><a href="/DataSource">Data sources</a></li>
+                   
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--end navbar-->
+    <!--start testmonials section-->
+    <section class="testmonials text-center">
+        <!--start testmonials carousel-->
+        <div id="myslide" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="carousel-caption">
+                        <p class="lead">Products Affiliation</p>
+                        <p>This service enables you to create different bundles from products which are proven to be frequently bought together in historical transactions, implemented with association algorthims.</p>
+                        <p class="lead">Required data: (CSV)</p>
+                        <p>Orders_products csv file containing the following columns with the same names:</p>
+                        <ul>
+                            <li>order id</li>
+                            <li>product id</li>
+                            <li>product name</li>
+                            <li>created date</li>
+                        </ul>
+                        <h1 style="color:red">Upload your CSV file</h1>
+                        <form method="post" action="/platform/products" enctype="multipart/form-data">
+                            <input  type="file" name="file" >
+                            <input style="color:black" type="submit" value="UPLOAD">
+                        </form>
+                    </div>
+                </div>
+            
+            </div>
+            <!-- Indicators -->
+         
+        </div>
+        <!--end testmonials carousel-->
+    </section>
+    <!--end testmonials section-->
+    <!--start ultimate footer section-->
+    <section class="footer text-center">
+
+
+        <div class="copyright text-center">
+            Copyright &copy; 2021 all rights reversed | <span class="pp2">SureAnalystics</span>
+        </div>
+
+
+
+
+    </section>
+    <!--start ultimate footer section-->
+    <
+    <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+
+</body>
+</html>

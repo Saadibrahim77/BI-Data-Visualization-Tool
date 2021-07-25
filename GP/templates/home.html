@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
-    <title>Home</title>
+    <title>Home {{ txt}}  </title>
     <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/style2.css')}}"> <!--to update bootstrap -->
@@ -70,32 +70,14 @@
     <section class="footer text-center">
         <div class="container-fluid">
             <div class="row">
-                <ul>
-                    <li><img src="{{url_for('static',filename='images/88.svg')}}"></li>
-                    <li><img src="{{url_for('static',filename='images/1111.svg')}}"></li>
-                    <li><img src="{{url_for('static',filename='images/1212.svg')}}"></li>
-                </ul>
-                <div class="col-md-3">
-                    <a href="#"><p>Privacy and Policy</p></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><p>Terms and conditions</p></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><p>contact us</p></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><p>Ask for help</p></a>
-                </div>
-                <p><span class="pp">We accept :</span><img src="{{url_for('static',filename='images/2.png')}}"> <img src="{{url_for('static',filename='images/3.png')}}" /> </p>
                 <div class="copyright text-center">
                     Copyright &copy; 2021 all rights reversed | <span class="pp2">SureAnalystics</span>
                 </div>
-                    -->
+                    
             </div>
 
         </div>
-    -->
+   
     </section>
     <!--start ultimate footer section-->
     <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>

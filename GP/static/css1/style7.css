@@ -1,6 +1,30 @@
-body{
-    background-color: #F9F6FF;
+*{
+    box-sizing: border-box;
 }
+body{
+    background-color: #FFF;
+}
+.loading-overlay{
+    background-color:#9BA5B5;
+    color: #FFF;
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+  }
+  .ml2 {
+    font-weight: 900;
+    font-size: 3.5em;
+    padding-left: 35%;
+    padding-top: 25%;
+  }
+  
+  .ml2 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
 .navbar-inverse{
     background: none;
     border: none;
@@ -9,6 +33,7 @@ body{
     
 }
 /*start navbar*/
+
 .navbar-brand{
     font-weight: bold;
     color: black;
@@ -55,31 +80,72 @@ body{
 
 /*end navbar*/
 /*start graph section*/
-  .graph-chart .p1{
-      margin-top: 75px;
+.graph-chart1{
+    position: relative;
+    left: 65%;
+    min-height:630px;
+    width: 37%;
+    border: 1px solid #aaa;
+    margin-top: -19px;
+    background-color: #F3F2F0;
+}
+.graph-chart1 .buttons{
+ margin-left: 8%;
+}
+.graph-chart1 .btn-warning{
+    margin-right: 6px;
+}
+.graph-chart2{
+    position: relative;
+    left: -3.5%;
+    min-height:630px;
+    width: 600px;
+    border: 1px solid #aaa;
+    margin-top: -19px;
+    background-color: #F3F2F0;
+}
+.graph-chart3{
+    position: relative;
+    min-height:630px;
+    width: 1106.8px;
+    left: -250px;
+    border: 2px dotted #aaa;
+    margin-top: -19px;
+    background-color: #fff;
+}
+.graph-chart1 hr{
+    width: 100%;
+}
+  .graph-chart1 .p1{
       margin-bottom: -35px;
       padding-right: 23px;
       font-weight: bold;
-      text-align: end;
+      font-size: 20px;
   }
-  .graph-chart p{
+  .graph-chart1 .p2{
+      font-size: 20px;
+  }
+  .graph-chart1 p{
     margin-bottom: -35px;
     padding-right: 23px;
     font-weight: bold;
-    text-align: end;
     cursor: pointer;
+    font-size: 20px;
 }
-  .graph-chart img{
+  .graph-chart1 img{
       margin-top: 50px;
-      position:absolute;
-      right: 20px;
       cursor: pointer;
       
   }
-  .graph-chart .row1,
-  .graph-chart .row2,
-  .graph-chart .row3{
-      margin-bottom:140px ;
+  .graph-chart1 .row1,
+  .graph-chart1 .row2,
+  .graph-chart1 .row3{
+      margin-top: 30px;
+      margin-bottom:20px ;
+      margin-left: 30%;
+  }
+  .graph-items{
+      border: 1px solid #AAA;
   }
   
   /*end graph section*/
@@ -100,20 +166,20 @@ body{
       margin-left: -27px;
   }
   /*end modal*/
+  /*start buttons*/
+
+  /*end buttons*/
   
  /*start ultimate footer section*/
 .footer{
     background-color: none;
     color: #AAA;
-    padding-top: 10px; 
-    margin-top: 222px;
   }
   
 .footer .copyright{
         background: #333;
         color: #EEE;
         padding: 15px 0;
-        margin-top: 20px;
         font-size: 18px;
 }
 .footer .pp2{

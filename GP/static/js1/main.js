@@ -1,25 +1,29 @@
-$('.carousel').carousel({
-    interval:3000 
-});
-
-$(function(){
-    'use strict';
-    // Adjust slider height
-    var winH = $(window).height(),
-        navH = $('.navbar').innerHeight(),
-        conH = 150;
     
-    $('.testmonials, .item').height((winH - navH) - conH);
-    });
-$("#img1").click(function() {
-    $("#modal1").toggle();
-    })
-$("#img2").click(function() {
-    $("#modal2").show();
-    })
-$("#img3").click(function() {
-    $("#modal3").show();
-    })  
-$("#img4").click(function() {
-    $("#modal4").show();
-    })
+    $(".loading-overlay,.loading-overlay .spinner").fadeOut(3500,      //css spinner.com
+        function (){
+          //show scroll
+          $("body").css("overflow","auto");
+    
+             $(this).remove();       
+         
+            
+        });
+        var textWrapper = document.querySelector('.ml2');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml2 .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 70*i
+  }).add({
+    targets: '.ml2',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
