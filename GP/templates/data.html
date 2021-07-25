@@ -1,0 +1,176 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
+    <title>Data Sources</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style4.css')}}">
+    <!--to update bootstrap -->
+</head>
+<body>
+    <!--start navbar-->
+    <nav class="navbar navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>Sure</span>Analytics</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Report <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{url_for('static',filename='face1.png')}}" width="45px" height="45px"> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="personal.html"><i class="fas fa-home"></i>Home</a></li>
+                            <li><a href="/login"><i class="fas fa-sign-out-alt"></i> SignOut</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--end navbar-->
+    <!--start data-->
+    <div class="data">
+        <h2>Data Sources</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="online-icon">
+                    <h3><i class="fas fa-users"></i>  Social Media Platforms </h3>
+
+                    <div class="button">
+                        <a onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'facebook');">
+                            <div class="icon"><i class="fab fa-facebook"></i></div>
+                        </a>
+                        
+                        <a onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'facebook');">
+                           <span>Facebook</span>
+                        </a>
+                    </div>
+
+                    <div class="button">
+                        <a onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'insta');">
+                            <div class="icon"><i class="fab fa-instagram"></i></div>
+                        </a>
+                        
+                        <a  onclick="loginByFacebook('pages_show_list, read_insights, instagram_basic, pages_read_engagement', 'insta');">
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    <div class="button">
+                        <a href="http://www.twitter.com">
+                            <div class="icon"><i class="fab fa-twitter"></i></div>
+                        </a>
+                        <a href="http://www.twitter.com">
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                    <div class="button">
+                        <a href="http://www.linkedin.com">
+                            <div class="icon"><i class="fab fa-linkedin-in"></i></div>
+                        </a>
+                        <a href="http://www.linkedin.com">
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end data-->
+    <!--start ultimate footer section-->
+    <section class="footer text-center">
+        <div class="container-fluid">
+            <div class="row">
+                <ul>
+                    <li><img src="{{url_for('static',filename='images/88.svg')}}"></li>
+                    <li><img src="{{url_for('static',filename='images/1111.svg')}}"></li>
+                    <li><img src="{{url_for('static',filename='images/1212.svg')}}"></li>
+                </ul>
+                <div class="col-md-3">
+                    <a href="#"><p>Privacy and Policy</p></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"><p>Terms and conditions</p></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"><p>contact us</p></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"><p>Ask for help</p></a>
+                </div>
+                <p><span class="pp">We accept :</span>  <img src="{{url_for('static',filename='images/2.png')}}"> <img src="{{url_for('static',filename='images/3.png')}}" /></p>
+                <div class="copyright text-center">
+                    Copyright &copy; 2021 all rights reversed | <span class="pp2">SureAnalystics</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!--start ultimate footer section-->
+    <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+
+    <div id="fb-root"></div>
+    
+
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '509301210256525',
+                status: true, // check login status
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true, // parse XFBML
+                oauth: true // enable OAuth 2.0
+            });
+        };
+        (function () {
+            var e = document.createElement('script');
+            e.async = true;
+            e.src = document.location.protocol +
+                '//connect.facebook.net/en_US/all.js';
+            document.getElementById('fb-root').appendChild(e);
+        }());
+
+        function loginByFacebook(permission, from) {
+            FB.login(function (response) {
+                if (response.status === 'connected') {
+                    if (response.authResponse) {
+                        FacebookLoggedIn(response, from);
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                }
+            }, { scope: permission });
+        }
+
+        function FacebookLoggedIn(response, from) {
+            var route;
+            if (from == 'facebook') {
+                route = "/Facebook/AccessToken";
+            }
+            if (from == 'insta') {
+                route = "/Instagram/AccessToken";
+            }
+
+            console.log(route);
+            if (from == 'facebook') {
+                window.location.href = route + '/' + response.authResponse.accessToken;
+                return;
+            } else if (from == 'insta') {
+                window.location.href = route + '/' + response.authResponse.accessToken;
+                return;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+body{
+    background-color: #F9F6FF;
+}
+.navbar-inverse{
+    background: none;
+    border: none;
+    font-size: 15px;
+    padding-top: 10px;
+    
+}
+.navbar-inverse .navbar-nav > .active > a,
+ .navbar-inverse .navbar-nav > .active > a:hover,
+  .navbar-inverse .navbar-nav > .active > a:focus{
+      background: none;
+      
+  }
+  .navbar-inverse .navbar-nav > li > a,
+  .navbar-inverse .navbar-nav > .active > a,
+   .navbar-inverse .navbar-nav > .active > a:focus,
+   .navbar-inverse .navbar-brand{
+    color:#000;
+    font-weight: bold;
+   }
+   .navbar-inverse .navbar-brand:hover{
+    color:#000;
+   }
+ 
+  .navbar-inverse .navbar-nav > li > a:hover,
+  .navbar-inverse .navbar-nav > .active > a:hover{
+      color: #F00;
+
+  }
+  .navbar-brand span{
+      font-style: italic;
+      color: firebrick;
+  }
+  .navbar-inverse .navbar-brand{
+      font-size: 20px;
+  }
+  .navbar-inverse .navbar-nav > .open > a,
+   .navbar-inverse .navbar-nav > .open > a:hover, 
+   .navbar-inverse .navbar-nav > .open > a:focus{
+       background:none;
+   }
+   
+   
+   .dropdown-menu > li > a{
+    padding: 6px 20px;
+    transition: padding 0.5s ease;
+   }
+   .dropdown-menu > li > a:hover{
+    background-color: #F00;
+    color: #FFF;
+    padding-left: 25px;
+  }
+  .nav > li > a > img{
+    margin-top: -9px;
+    border-radius: 50%;
+  }
+  .fas{
+      margin-right: 4px;
+  }
+/*start insgram section*/
+.instgram-page{
+    margin-bottom: 17%;
+    padding-top: 40px;
+}
+.instgram-page p{
+    font-weight: bold;
+}
+.instgram-page .row1{
+    background-color: #FEFEFE;
+    width: 100%; 
+    padding: 30px; 
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.instgram-page .pull-left{
+    padding: 10px;
+}
+.instgram-page .media-object{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.instgram-page .media-body{
+    padding: 32px;
+}
+.instgram-page .media-body p{
+    margin-bottom: 37px;
+}
+.instgram-page  button{
+    background-color:FEFEFE ;
+    color: #C2ADB9;
+    border: 2px solid #C2ADB9;
+    border-radius: 30px;
+    width: 140px;
+    padding: 10px;
+    font-weight: bold;
+}
+button a{
+    color:#C2ADB9 ;
+    text-decoration: none;
+}
+button a:hover{
+    color:#C2ADB9 ;
+    text-decoration: none;
+}
+
+
+
+/*end insgram section*/
+  
+ /*start ultimate footer section*/
+.footer{
+    color: #AAA;
+    padding-top: 10px; 
+    margin-top: 255px;
+  }
+  
+.footer .copyright{
+        background: #333;
+        color: #EEE;
+        padding: 15px 0;
+        margin-top: 20px;
+        font-size: 18px;
+}
+.footer .pp2{
+    color: #35D8FD;
+}
+  
+  /*end ultimate footer section*/
+   

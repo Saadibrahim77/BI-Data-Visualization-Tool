@@ -1,0 +1,191 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--first mobile meta-->
+    <title>register</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/all.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style1.css')}}"> <!--to update bootstrap -->
+</head>
+    <body>
+        <!--start navbar-->
+        <nav class="navbar navbar-inverse  ">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>Sure</span>Analytics</a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                  <li class="li"><a href="/login">login</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+          <!--end navbar-->
+          <!--start section register-->
+        <form action="/register/register_action" method="post">
+            <section class="register">
+                <div class="fields">
+                    <div class="container">
+                        <div class="row">
+                            <form role="form" method="POST" action="login.html">
+                                <div class="col-md-12">
+                                    <img src="{{url_for('static',filename='images/10.png')}}" class="center-block">
+                                    <h2 class="text-center">Create your account now</h2>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Username" maxlength="15" minlength="5" required>
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="First Name" required name="fname">
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" name="date" placeholder="date of birth" onfocus="(this.type='date')" required >
+                                    </div>
+                                    <div class="input-box">
+                                        <i class="fas fa-key"></i>
+                                        <input onkeyup="active()" type="password" placeholder="password" class="pswrd_1" id="pass1" name="password" required>
+                                        <span class="eye" onclick="myFunction1()">
+                                            <i id="hide1" class="far fa-eye"></i>
+                                            <i id="hide2" class="far fa-eye-slash"></i>
+                                        </span>
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Company Name" required name="company_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-box">
+                                        <i class="far fa-envelope"></i>
+                                        <input type="email" placeholder="Email Address" required name="email">
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Last Name" required name="lname">
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Phone" required>
+                                    </div>
+                                    <div class="error-text"></div>
+                                    <div class="input-box">
+                                        <i class="fas fa-key"></i>
+                                        <input type="password" placeholder="Confirm password" id="pass2" class="pswrd_2" required>
+                                        <span class="eye" onclick="myFunction2()">
+                                            <i id="hide3" class="far fa-eye"></i>
+                                            <i id="hide4" class="far fa-eye-slash"></i>
+                                        </span>
+                                    </div>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="Industry name"  required name="industry">
+                                    </div>
+                                    <button class="btn btn-danger btn-block" id="btn" type="submit">Sign up for free</button>
+                                </div>
+                                <div class="col-md-12">
+                                    <p class="text-center">By Creating an account you agree to our terms & conditions</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <div>
+                                        <p class="text-center">Already using SureAnalystics? <a href="login.html"><span>Login</span></a></p>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--end register form-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--end section register-->
+            <!--start ultimate footer section-->
+            <section class="footer text-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul>
+                            <li><img src="{{url_for('static',filename='images/88.svg')}}"></li>
+                            <li><img src="{{url_for('static',filename='images/1111.svg')}}"></li>
+                            <li><img src="{{url_for('static',filename='images/1212.svg')}}"></li>
+                        </ul>
+                        <div class="col-md-3">
+                            <a href="#"><p>Privacy and Policy</p></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#"><p>Terms and conditions</p></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#"><p>contact us</p></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#"><p>Ask for help</p></a>
+                        </div>
+                        <p><span class="pp">We accept :</span><img src="{{url_for('static',filename='images/2.png')}}"> <img src="{{url_for('static',filename='images/3.png')}}" /> </p>
+                        <div class="copyright text-center">
+                            Copyright &copy; 2021 all rights reversed | <span class="pp2">SureAnalystics</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <!--start ultimate footer section-->
+            <script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+            <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+            <script>
+                var errorText = document.querySelector(".error-text"),
+                    pswrd_1 = document.querySelector(".pswrd_1"),
+                    pswrd_2 = document.querySelector(".pswrd_2"),
+                    btn = document.querySelector("#btn");
+                function myFunction1() {
+                    var x = document.getElementById("pass1"),
+                        y = document.getElementById("hide1"),
+                        z = document.getElementById("hide2");
+
+                    if (x.type === 'password') {
+                        x.type = "text";
+                        y.style.display = "block";
+                        z.style.display = "none";
+                    }
+                    else {
+                        x.type = "password";
+                        y.style.display = "none";
+                        z.style.display = "block";
+                    }
+                }
+                function myFunction2() {
+                    var x = document.getElementById("pass2"),
+                        y = document.getElementById("hide3"),
+                        z = document.getElementById("hide4");
+                    if (x.type === 'password') {
+                        x.type = "text";
+                        y.style.display = "block";
+                        z.style.display = "none";
+                    }
+                    else {
+                        x.type = "password";
+                        y.style.display = "none";
+                        z.style.display = "block";
+                    }
+                }
+
+                btn.onclick = function () {
+                    if (pswrd_1.value != pswrd_2.value) {
+                        errorText.style.display = "block";
+                        errorText.classList.remove("matched");
+                        errorText.textContent = "Error! Confirm Password Not Match";
+                        return false;
+                    }
+                    else {
+                        return true
+
+                    }
+                }
+
+            </script>
+        </form>
+    </body>
+</html>
